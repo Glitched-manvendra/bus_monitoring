@@ -15,8 +15,33 @@ export const authMiddleware = async (req, res, next) => {
   const { data, error } = await supabase.auth.api.getUser(token);
 
   if (error || !data) {
-    return res.status(401).json({ message: 'Unauthorized' });
-  }
+    return res.status(401).json({ me    import jwt from 'jsonwebtoken';
+    
+    const supabaseJwtSecret = process.env.SUPABASE_JWT_SECRET;
+    
+    export const authMiddleware = (req, res, next) => {
+      const token = req.headers['authorization']?.split(' ')[1];
+      if (!token) {
+        return res.status(401).json({ message: 'Unauthorized' });
+      }
+    
+      try {
+        const decoded = jwt.verify(token, supabaseJwtSecret);
+        req.user = decoded;
+        next();
+      } catch (err) {
+        return res.status(401).json({ message: 'Unauthorized' });
+      }
+    };
+    
+    export const roleMiddleware = (roles) => {
+      return (req, res, next) => {
+        if (!req.user || !roles.includes(req.user.role)) {
+          return res.status(403).json({ message: 'Forbidden' });
+        }
+        next();
+      };
+    };
 
   req.user = data;
   next();
