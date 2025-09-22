@@ -20,7 +20,7 @@ function Navbar() {
         <div className="navbar-content">
           <Link to="/" className="navbar-brand">
             <Bus className="brand-icon" />
-            <span>BusTracker</span>
+            <span>Track-My-Bus</span>
           </Link>
           
           <div className="navbar-menu">

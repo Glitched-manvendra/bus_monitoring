@@ -58,7 +58,7 @@ function Login() {
         <div className="login-container">
           <div className="login-header">
             <Bus className="login-icon" />
-            <h1 className="login-title">Welcome to BusTracker</h1>
+            <h1 className="login-title">Welcome to Track-My-Bus</h1>
             <p className="login-subtitle">Sign in to access your dashboard</p>
           </div>
 

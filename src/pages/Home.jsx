@@ -81,7 +81,7 @@ function Home() {
           <div className="cta-content">
             <h2 className="cta-title">Ready to Get Started?</h2>
             <p className="cta-description">
-              Join thousands of passengers and operators who trust BusTracker for reliable bus tracking.
+              Join thousands of passengers and operators who trust Track-My-Bus for reliable bus tracking.
             </p>
             <div className="cta-actions">
               <Link to="/login" className="btn btn-primary btn-large">
