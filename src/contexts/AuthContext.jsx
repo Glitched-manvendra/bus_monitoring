@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     // Check for stored authentication on app load
-    const storedUser = localStorage.getItem('busTrackerUser')
+    const storedUser = localStorage.getItem('Track My BusUser')
     if (storedUser) {
       try {
         const userData = JSON.parse(storedUser)
@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
         setIsAuthenticated(true)
       } catch (error) {
         console.error('Error parsing stored user data:', error)
-        localStorage.removeItem('busTrackerUser')
+        localStorage.removeItem('Track My BusUser')
       }
     }
     setLoading(false)
@@ -34,13 +34,13 @@ export function AuthProvider({ children }) {
   const login = (userData) => {
     setUser(userData)
     setIsAuthenticated(true)
-    localStorage.setItem('busTrackerUser', JSON.stringify(userData))
+    localStorage.setItem('Track My BusUser', JSON.stringify(userData))
   }
 
   const logout = () => {
     setUser(null)
     setIsAuthenticated(false)
-    localStorage.removeItem('busTrackerUser')
+    localStorage.removeItem('Track My BusUser')
   }
 
   const value = {

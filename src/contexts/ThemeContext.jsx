@@ -16,7 +16,7 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     // Check for stored theme preference on app load
-    const storedTheme = localStorage.getItem('Track-My-BusTheme')
+    const storedTheme = localStorage.getItem('Track My BusTheme')
     if (storedTheme) {
       setIsDarkMode(storedTheme === 'dark')
     } else {
@@ -35,7 +35,7 @@ export function ThemeProvider({ children }) {
       } else {
         document.documentElement.classList.remove('dark')
       }
-      localStorage.setItem('Track-My-BusTheme', isDarkMode ? 'dark' : 'light')
+      localStorage.setItem('Track My BusTheme', isDarkMode ? 'dark' : 'light')
     }
   }, [isDarkMode, loading])
 
